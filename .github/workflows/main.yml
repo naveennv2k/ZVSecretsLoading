@@ -1,0 +1,16 @@
+name: Example Workflow
+on: [push]
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make API call
+        uses: ./ # Path to your action directory
+        with:
+          api_url: ${{ secrets.API_URL }}
+          api_token: ${{ secrets.API_TOKEN }}
+      - name: Display response data
+        run: |
+          echo "Response Status: ${{ steps.make_api_call.outputs.response_status }}"
+          echo "Response Data: ${{ steps.make_api_call.outputs.response_data }}"
