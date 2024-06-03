@@ -1,0 +1,9 @@
+name: Example Workflow
+on: [push]
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: actions checkout
+        uses: actions/checkout@v4.1.5
