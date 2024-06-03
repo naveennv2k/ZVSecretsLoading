@@ -1,5 +1,5 @@
 name: Example Workflow
-on: [push]
+on: [workflow_call]
 
 jobs:
   example_job:
@@ -7,3 +7,5 @@ jobs:
     steps:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
+      - name: sample Test
+        run: echo "its calling"
