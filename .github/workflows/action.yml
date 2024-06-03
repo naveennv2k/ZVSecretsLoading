@@ -1,0 +1,10 @@
+name: load secrets
+
+on: [push]
+
+jobs:
+  inject_secrets:
+     runs-on: ubuntu_latest
+     steps:
+     - name: load secrets
+       run: echo "print world"
