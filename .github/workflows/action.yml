@@ -1,6 +1,10 @@
 name: Example Workflow
 on: 
   workflow_call:
+    inputs:
+      secretName:
+        required: true
+        type: string
     outputs: 
       var1:
         description: var1
