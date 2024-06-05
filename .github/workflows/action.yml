@@ -26,7 +26,7 @@ jobs:
         run: |
               ./zv login
       - name: unlock zv      
-        run: printf "${{secrets.MASTERPASS}}" | ./zv unlock
+        run: printf ${{vars.MASTERPASS}} | ./zv unlock
       - name: load secrets from zv
         run: node loadSecrets.js myPassword
       - name:  printing secrets
