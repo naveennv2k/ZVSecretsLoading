@@ -66,6 +66,5 @@ jobs:
       - name: Unlock Secrets
         id: unlock
         run: |
-          echo "Username: $secretUsername"
-          echo "Password: $secretPassword"
-        
+          echo "::set-output name=Username:: $secretUsername"
+          echo "::set-output name=Password:: $secretPassword"
