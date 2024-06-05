@@ -66,6 +66,6 @@ jobs:
       - name: Unlock Secrets
         id: unlock
         run: |
+          echo "Username=$secretUsername" >> $GITHUB_OUTPUT 
+          echo "Password=$secretPassword" >> $GITHUB_OUTPUT 
           
-          echo "Username=$(echo $secretUsername)" >> $GITHUB_OUTPUT
-          echo "Password=$(echo $secretPassword)" >> $GITHUB_OUTPUT
