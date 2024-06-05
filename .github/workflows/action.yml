@@ -29,7 +29,7 @@ jobs:
       - name: load secrets from zv
         run: node loadSecrets.js myPassword
       - name:  printing secrets
-        run: echo  ${{secretUsername}}
+        run: echo  $secretUsername
             
       
         
