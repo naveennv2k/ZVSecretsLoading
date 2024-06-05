@@ -5,10 +5,7 @@ on:
       secretName:
         required: true
         type: string
-    outputs: 
-      var1:
-        description: var1
-        value: ${{jobs.example_job.outputs.var1}}
+   
 
     
 
@@ -16,13 +13,14 @@ jobs:
   example_job:
     environment: Test
     runs-on: ubuntu-latest
-    outputs:
-      var1: ${{vars.MASTERPASS}}
+   
     steps:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
-      - name: view mass
-        run: echo "secret is ${{vars.MASTERPASS}}"
+      - name: view mass var
+        run: echo "secret is ${{ secrets.MASTERPASS }}" 
+      - name: view mass secret
+        run: echo "secret is ${{ vars.MASTERPASS }}"
       - name: unzip cli
         run : unzip ./zv_cli.zip
       - name: login to  zv 
