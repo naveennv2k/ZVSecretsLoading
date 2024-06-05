@@ -12,10 +12,10 @@ on:
        
        username: 
          description: provide username
-         value: ${{jobs.example_job.output.username}}
+         value: ${{jobs.example_job.outputs.username}}
        password: 
          description: provide password
-         value: ${{jobs.example_job.output.password}}
+         value: ${{jobs.example_job.outputs.password}}
      
    
 
