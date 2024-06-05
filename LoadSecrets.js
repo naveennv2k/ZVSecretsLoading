@@ -8,6 +8,7 @@ exec(`./zv search -k ${process.argv[2]} `, (err, output) => {
   if(err){
      
      console.log(err);
+    return ;
   }
  const lines = output.split('\n');
   // console.log(lines);
