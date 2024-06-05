@@ -20,7 +20,7 @@ jobs:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
       - name: view mass var
-        run: echo "secret is ${{ vars.MASTER_PASSWORD }}" 
+        run: echo "secret is ${{ github.event.inputs.secretName }}" 
       
       
             
