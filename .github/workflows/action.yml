@@ -66,5 +66,6 @@ jobs:
       - name: Unlock Secrets
         id: unlock
         run: |
-          echo "::set-output name=Username:: $secretUsername"
-          echo "::set-output name=Password:: $secretPassword"
+          
+          echo "Username=$(echo $secretUsername)" >> $GITHUB_OUTPUT
+          echo "Password=$(echo $secretPassword)" >> $GITHUB_OUTPUT
