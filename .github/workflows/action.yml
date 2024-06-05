@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
+      - name: actions core
+        uses: actions/core@1 
         with:
           repository: naveennv2k/ZVSecretsLoading   # Replace with the owner and repository name
           ref: main 
@@ -43,7 +45,7 @@ jobs:
       - name: load secrets from zv
         run: |
               ls -a $GITHUB_WORKSPACE
-          
+              npm install actions/core
               node ./LoadSecrets.js ${{ inputs.secretName }}
       - name:  printing secrets
         run: echo  $secretUsername
