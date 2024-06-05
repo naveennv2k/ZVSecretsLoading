@@ -24,8 +24,9 @@ jobs:
         run: echo "secret is ${{ inputs.secretName }}" 
       - name: view mass secret
         run: echo "secret is ${{ secrets.master_password }}"
-      - name: view Home
-        run: echo "secret is $HOME"  
+      - name: List Workspace Contents
+        run: ls -a $GITHUB_WORKSPACE
+ 
       - name: ls
         run: |
               cd $GITHUB_WORKSPACE
