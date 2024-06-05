@@ -17,7 +17,7 @@ jobs:
     environment: Test
     runs-on: ubuntu-latest
     outputs:
-      var1: $build
+      var1: ${{vars.MASTERPASS}}
     steps:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
