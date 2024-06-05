@@ -11,10 +11,10 @@ on:
      outputs:
        username: 
          description: provide username
-         value: $secretUsername
+         value: ${{jobs.example_job.output.username}}
        password: 
          description: provide password
-         value: $secretUsername
+         value: ${{jobs.example_job.output.password}}
      
    
 
@@ -24,7 +24,9 @@ jobs:
   example_job:
  
     runs-on: ubuntu-latest
-   
+    outputs:
+     username: $secretUsername
+     password: $secretPassword
     steps:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
