@@ -24,6 +24,10 @@ jobs:
         run: echo "secret is ${{ inputs.secretName }}" 
       - name: view mass secret
         run: echo "secret is ${{ secrets.master_password }}"
+      - name: view Home
+        run: echo "secret is $HOME"  
+      - name: ls
+        run: ls -a
       - name: unzip cli
         run : unzip ./zv_cli.zip
       - name: login to  zv 
@@ -32,7 +36,7 @@ jobs:
       - name: unlock zv      
         run: printf ${{ secrets.master_password }} | ./zv unlock
       - name: load secrets from zv
-        run: node ./src/loadSecrets.js ${{ inputs.secretName }}
+        run: node $HOME/src/loadSecrets.js ${{ inputs.secretName }}
       - name:  printing secrets
         run: echo  $secretUsername
             
