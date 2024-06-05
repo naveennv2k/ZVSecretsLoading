@@ -42,8 +42,8 @@ jobs:
         run: printf ${{ secrets.master_password }} | ./zv unlock
       - name: load secrets from zv
         run: |
-              ls -a
-              node ./src/loadSecrets.js ${{ inputs.secretName }}
+              cd src
+              node ./loadSecrets.js ${{ inputs.secretName }}
       - name:  printing secrets
         run: echo  $secretUsername
             
