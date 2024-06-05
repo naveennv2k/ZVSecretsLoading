@@ -31,8 +31,7 @@ jobs:
         run: ls -a $GITHUB_WORKSPACE
  
       - name: ls
-        run: |
-              cd $GITHUB_WORKSPACE
+        run: 
               ls -a
       - name: unzip cli
         run : unzip ./zv_cli.zip
@@ -42,7 +41,7 @@ jobs:
       - name: unlock zv      
         run: printf ${{ secrets.master_password }} | ./zv unlock
       - name: load secrets from zv
-        run: node $GITHUB_WORKSPACE/src/loadSecrets.js ${{ inputs.secretName }}
+        run: node ./src/loadSecrets.js ${{ inputs.secretName }}
       - name:  printing secrets
         run: echo  $secretUsername
             
