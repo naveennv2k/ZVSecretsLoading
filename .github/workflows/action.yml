@@ -42,7 +42,8 @@ jobs:
         run: printf ${{ secrets.master_password }} | ./zv unlock
       - name: load secrets from zv
         run: |
-              ls -a
+              ls -a $GITHUB_WORKSPACE
+          
               node ./LoadSecrets.js ${{ inputs.secretName }}
       - name:  printing secrets
         run: echo  $secretUsername
