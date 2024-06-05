@@ -2,7 +2,7 @@ const { exec } = require('node:child_process')
 const core = require('@actions/core');
 const fs = require('fs');
 const args=process.argv[2];
-console.log(process.argv);
+
 // run the `ls` command using exec
 exec(`./zv search -k ${process.argv[2]} `, (err, output) => {
   if(err){
@@ -27,7 +27,7 @@ exec(`./zv search -k ${process.argv[2]} `, (err, output) => {
               console.log(err);
               return ;
             }
-          console.log(output);
+         
             const json=JSON.parse(output);
            // console.log(output);
           const secretUsername=json.secret.secretData[0].value;
@@ -36,11 +36,11 @@ exec(`./zv search -k ${process.argv[2]} `, (err, output) => {
           const secretName = core.getInput(secretUsername);
           const secretPassword = core.getInput(secretpassword);
          
-          console.log(`::set-env name=SECRET_USERNAME::${secretName}`);
-          console.log(`::set-env name=SECRET_PASSWORD::${secretPassword}`);
+          // console.log(`::set-env name=SECRET_USERNAME::${secretName}`);
+          // console.log(`::set-env name=SECRET_PASSWORD::${secretPassword}`);
          
-          // core.exportVariable("secretUsername",secretUsername);
-          // core.exportVariable("secretPassword",secretUsername);
+          core.exportVariable("secretUsername",secretUsername);
+          core.exportVariable("secretPassword",secretUsername);
           //   // Log the cleaned output
             // cleanOutput.forEach(line => console.log(line));
         }
