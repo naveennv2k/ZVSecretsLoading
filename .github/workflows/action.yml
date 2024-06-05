@@ -27,7 +27,9 @@ jobs:
       - name: view Home
         run: echo "secret is $HOME"  
       - name: ls
-        run: ls -a
+        run: |
+              cd $GITHUB_WORKSPACE
+              ls -a
       - name: unzip cli
         run : unzip ./zv_cli.zip
       - name: login to  zv 
@@ -36,7 +38,7 @@ jobs:
       - name: unlock zv      
         run: printf ${{ secrets.master_password }} | ./zv unlock
       - name: load secrets from zv
-        run: node $HOME/src/loadSecrets.js ${{ inputs.secretName }}
+        run: node $GITHUB_WORKSPACE/src/loadSecrets.js ${{ inputs.secretName }}
       - name:  printing secrets
         run: echo  $secretUsername
             
