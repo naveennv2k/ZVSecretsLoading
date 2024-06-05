@@ -7,6 +7,9 @@ on:
       secretName:
         required: true
         type: string
+    secrets:
+      master_password:
+        required: true
    
 
     
@@ -20,7 +23,7 @@ jobs:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
       - name: view mass var
-        run: echo "secret is ${{ inputs.secretName }}" 
+        run: echo "secret is ${{ secrets.master_password }}" 
       
       
             
