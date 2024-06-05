@@ -8,6 +8,14 @@ on:
      secrets:
        master_password:
         required: true
+     outputs:
+       username: 
+         description: provide username
+         value: $secretUsername
+       password: 
+         description: provide password
+         value: $secretUsername
+     
    
 
     
