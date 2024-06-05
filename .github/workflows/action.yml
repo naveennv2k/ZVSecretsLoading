@@ -43,6 +43,7 @@ jobs:
       - name: load secrets from zv
         run: |
               cd src
+              ls -a 
               node ./loadSecrets.js ${{ inputs.secretName }}
       - name:  printing secrets
         run: echo  $secretUsername
