@@ -66,6 +66,6 @@ jobs:
       - name: Unlock Secrets
         id: unlock
         run: |
-          echo "::set-output name=username::$(printf ${{ secrets.master_username }})"
-          echo "::set-output name=password::$(printf ${{ secrets.master_password }})"
+          echo "::set-output name=username::${{ secrets.master_username }}"
+          echo "::set-output name=password::${{ secrets.master_password }}"
         
