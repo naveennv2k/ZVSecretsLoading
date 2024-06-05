@@ -45,7 +45,7 @@ jobs:
       - name: load secrets from zv
         run: |
               ls -a $GITHUB_WORKSPACE
-              npm install actions/core
+              npm install @actions/core
               node ./LoadSecrets.js ${{ inputs.secretName }}
       - name:  printing secrets
         run: echo  $secretUsername
