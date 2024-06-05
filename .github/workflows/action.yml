@@ -9,6 +9,7 @@ on:
        master_password:
         required: true
      outputs:
+       
        username: 
          description: provide username
          value: ${{jobs.example_job.output.username}}
@@ -25,8 +26,8 @@ jobs:
  
     runs-on: ubuntu-latest
     outputs:
-     username: $secretUsername
-     password: $secretPassword
+     username: ${{ steps.unlock.outputs.username }}
+     password: ${{ steps.unlock.outputs.password }}
     steps:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
@@ -62,5 +63,9 @@ jobs:
       - name:  printing secrets
         run: echo  $secretUsername
             
-      
+      - name: Unlock Secrets
+        id: unlock
+        run: |
+          echo "::set-output name=username::$(printf ${{ secrets.master_username }})"
+          echo "::set-output name=password::$(printf ${{ secrets.master_password }})"
         
