@@ -23,7 +23,7 @@ exec(`./zv search -k ${process.argv[2]} `, (err, output) => {
       //  console.log(columns[1].substring(7,columns[1].length-10));
         exec(`./zv get -id ${columns[1].substring(7,columns[1].length-10)} --output json --not-safe`, (err, output) => {
             
-           // console.log(output);
+          console.log(output);
             const json=JSON.parse(output);
            // console.log(output);
           const secretUsername=json.secret.secretData[0].value;
