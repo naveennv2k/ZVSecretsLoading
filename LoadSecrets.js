@@ -26,14 +26,14 @@ exec(`./zv search -k ${process.argv[2]}`, (err, output) => {
       //  console.log(columns[1].substring(7,columns[1].length-10));
         exec(`./zv get -id ${columns[1].substring(7,columns[1].length-10)} --output json --not-safe`, (err, output) => {
             
-           // console.log(output);
-            const json=JSON.parse(output);
+            console.log(output);
+          //   const json=JSON.parse(output);
             
-          const secretUsername=json.secret.secretData[0].value;
-          const secretpassword=json.secret.secretData[1].value;
-          console.log(secretUsername);
-          console.log(secretpassword);
-          core.exportVariable("testName",secretUsername);
+          // const secretUsername=json.secret.secretData[0].value;
+          // const secretpassword=json.secret.secretData[1].value;
+          // console.log(secretUsername);
+          // console.log(secretpassword);
+          // core.exportVariable("testName",secretUsername);
             // Log the cleaned output
             // cleanOutput.forEach(line => console.log(line));
         }
