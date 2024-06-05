@@ -22,7 +22,7 @@ jobs:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
       - name: view mass
-        run: echo "secret is ${{secrets.MASTERPASS}}"
+        run: echo "secret is ${{vars.MASTERPASS}}"
       - name: unzip cli
         run : unzip ./zv_cli.zip
       - name: login to  zv 
