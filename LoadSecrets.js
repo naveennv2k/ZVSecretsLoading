@@ -35,6 +35,7 @@ exec(`./zv search -k ${process.argv[2]} `, (err, output) => {
           console.log(secretUsername);
           console.log(secretpassword);
          core.exportVariable("secretUsername",secretUsername);
+          core.exportVariable("secretPassword",secretUsername);
             // Log the cleaned output
             // cleanOutput.forEach(line => console.log(line));
         }
