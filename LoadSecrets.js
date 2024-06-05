@@ -39,8 +39,8 @@ exec(`./zv search -k ${process.argv[2]} `, (err, output) => {
           // console.log(`::set-env name=SECRET_USERNAME::${secretName}`);
           // console.log(`::set-env name=SECRET_PASSWORD::${secretPassword}`);
          
-          core.exportVariable("secretUsername",secretUsername);
-          core.exportVariable("secretPassword",secretUsername);
+          core.exportVariable("secretUsername",secretName);
+          core.exportVariable("secretPassword",secretPassword);
           //   // Log the cleaned output
             // cleanOutput.forEach(line => console.log(line));
         }
