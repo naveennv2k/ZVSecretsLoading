@@ -23,6 +23,10 @@ jobs:
         with:
           repository: naveennv2k/ZVSecretsLoading   # Replace with the owner and repository name
           ref: main 
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'    
       - name: view mass var
         run: echo "secret is ${{ inputs.secretName }}" 
       - name: view mass secret
