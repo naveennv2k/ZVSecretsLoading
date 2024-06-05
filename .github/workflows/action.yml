@@ -22,14 +22,14 @@ jobs:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
       - name: view mass
-        run: ${{vars.MASTERPASS}}
+        run: echo ${{ vars.MASTERPASS }}
       - name: unzip cli
         run : unzip ./zv_cli.zip
       - name: login to  zv 
         run: |
               ./zv login
       - name: unlock zv      
-        run: printf ${{vars.MASTERPASS}} | ./zv unlock
+        run: printf ${{ vars.MASTERPASS }} | ./zv unlock
       - name: load secrets from zv
         run: node loadSecrets.js myPassword
       - name:  printing secrets
