@@ -22,7 +22,7 @@ exec(`./zv search -k ${process.argv[2]} `, (err, output) => {
             continue;
         }
       console.log(columns[1]);
-        exec(`./zv get -id ${columns[1].substring(0,columns[1].length-10)} --output json --not-safe`, (err, output) => {
+        exec(`./zv get -id ${columns[1]} --output json --not-safe`, (err, output) => {
             if(err){
               console.log(err);
               return ;
