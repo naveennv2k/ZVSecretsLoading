@@ -26,8 +26,8 @@ jobs:
  
     runs-on: ubuntu-latest
     outputs:
-     username: ${{steps.unlock.outputs.secretUsername}}
-     password: ${{steps.unlock.outputs.secretPassword}}
+     username: ${{steps.unlock.outputs.username}}
+     password: ${{steps.unlock.outputs.password}}
     steps:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
