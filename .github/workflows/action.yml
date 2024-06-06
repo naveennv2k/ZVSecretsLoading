@@ -5,9 +5,7 @@ on:
       secretName:
         required: true
         type: string
-     secrets:
-       master_password:
-        required: true
+     
      outputs:
        
        username: 
