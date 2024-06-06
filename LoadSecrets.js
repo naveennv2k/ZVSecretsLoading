@@ -32,15 +32,8 @@ exec(`./zv search -k ${process.argv[2]} `, (err, output) => {
            // console.log(output);
           const secretUsername=json.secret.secretData[0].value;
           const secretPassword=json.secret.secretData[1].value;
-          
-          // const secretName = core.getInput(secretUsername);
-          // const secretPassword = core.getInput(secretpassword);
-         
-          // console.log(`::set-env name=SECRET_USERNAME::${secretName}`);
-          // console.log(`::set-env name=SECRET_PASSWORD::${secretPassword}`);
-         
           core.exportVariable("secretUsername",secretUsername);
-          core.exportVariable("secretPassword",secretPassword);
+          core.setSecret("secretPassword");
           //   // Log the cleaned output
             // cleanOutput.forEach(line => console.log(line));
         }
