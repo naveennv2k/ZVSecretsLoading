@@ -26,8 +26,8 @@ jobs:
  
     runs-on: ubuntu-latest
     outputs:
-     username: ${{steps.unlock.outputs.username}}
-     password: ${{steps.unlock.outputs.password}}
+     username: ${{steps.export.outputs.username}}
+     password: ${{steps.export.outputs.password}}
     steps:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
@@ -38,16 +38,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '20'    
-      - name: view mass var
-        run: echo "secret is ${{ inputs.secretName }}" 
-      - name: view mass secret
-        run: echo "secret is ${{ secrets.master_password }}"
-      - name: List Workspace Contents
-        run: ls -a $GITHUB_WORKSPACE
- 
-      - name: ls
-        run: 
-              ls -a
       - name: unzip cli
         run : unzip ./zv_cli.zip
       - name: login to  zv 
@@ -61,16 +51,13 @@ jobs:
               ls -a $GITHUB_WORKSPACE
               npm install @actions/core
               node ./LoadSecrets.js ${{ inputs.secretName }}
-      - name:  printing secrets
-        run: echo  $secretPassword;
             
-      - name: Unlock Secrets
-        id: unlock
+      - name: export Secrets
+        id: export
         run: |
          echo "username=$secretUsername" >> $GITHUB_OUTPUT
           echo password=$(gpg --symmetric --batch --passphrase "SECRET" --output - <(echo $secretPassword) | base64 -w0) >> $GITHUB_OUTPUT 
-      - name: TestOutput
-        run: echo ${{steps.unlock.outputs.secretUsername}}
+      
        
   
        
