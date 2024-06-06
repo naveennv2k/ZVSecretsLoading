@@ -28,8 +28,8 @@ jobs:
     env:
       password: steps.unlock.outputs.Password
     outputs:
-     username: ${{steps.unlock.outputs.Username}}
-     password: ${{steps.unlock.outputs.Password}}
+     username: ${{steps.unlock.outputs.secretUsername}}
+     password: ${{steps.unlock.outputs.secretPassword}}
     steps:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
@@ -58,6 +58,7 @@ jobs:
       - name: unlock zv      
         run: printf ${{ secrets.master_password }} | ./zv unlock
       - name: load secrets from zv
+        id: unlock
         run: |
               ls -a $GITHUB_WORKSPACE
               npm install @actions/core
@@ -66,11 +67,10 @@ jobs:
         run: echo  $secretPassword;
             
       - name: Unlock Secrets
-        id: unlock
+   
         run: |
-         echo "Username=$secretUsername">> $GITHUB_OUTPUT 
-          echo "$Password" >> $GITHUB_OUTPUT
-        env:
-           Password: $secretPassword
+         echo "$secretUsername"
+          echo "$secretPassword" 
+       
           
           
