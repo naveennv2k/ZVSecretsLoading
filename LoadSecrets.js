@@ -21,7 +21,7 @@ exec(`./zv search -k ${process.argv[2]} `, (err, output) => {
         if (columns.length < 2 || columns[0].startsWith('─')) {
             continue;
         }
-      console.log(columns[1]);
+  
         exec(`./zv get -id ${columns[1]} --output json --not-safe`, (err, output) => {
             if(err){
               console.log(err);
