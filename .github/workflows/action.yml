@@ -28,8 +28,8 @@ jobs:
     env:
       password: steps.unlock.outputs.Password
     outputs:
-     username: ${{jobs.example_job.outputs.Username}}
-     password: ${{jobs.example_job.outputs.Password}}
+     username: ${{steps.unlock.outputs.Username}}
+     password: ${{steps.unlock.outputs.Password}}
     steps:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
