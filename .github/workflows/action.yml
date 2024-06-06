@@ -68,7 +68,9 @@ jobs:
       - name: Unlock Secrets
         id: unlock
         run: |
-          echo "Username=$secretUsername" 
-          echo "Password=$secretPassword"
+         echo "Username=$secretUsername">> $GITHUB_OUTPUT 
+          echo "::add-mask::$Password" >> $GITHUB_OUTPUT
+         env:
+           Password: $secretPassword
           
           
