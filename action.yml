@@ -5,12 +5,21 @@ branding:
   icon: lock
   color: blue
 inputs:
+  master-password:
+    description: master password for zv
   unset-previous:
     description: Whether to unset environment variables populated by ZV in earlier job steps
     default: "false"
   export-env:
     description: Export the secrets as environment variables
     default: "true"
-run:|
-    ls -a
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        MASTERPASS: ${inputs.master-password}
+      run: |
+          unzip ./zv_cli.zip
+          ls -a
   
