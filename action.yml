@@ -20,6 +20,6 @@ runs:
       env:
         MASTERPASS: ${inputs.master-password}
       run: |
-          unzip ./zv_cli.zip
+          sh ./installCli.sh
           ls -a
   
