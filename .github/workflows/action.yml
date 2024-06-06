@@ -70,7 +70,7 @@ jobs:
         run: |
          echo "Username=$secretUsername">> $GITHUB_OUTPUT 
           echo "::add-mask::$Password" >> $GITHUB_OUTPUT
-         env:
+        env:
            Password: $secretPassword
           
           
