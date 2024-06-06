@@ -28,8 +28,8 @@ jobs:
     env:
       password: steps.unlock.outputs.Password
     outputs:
-     username: ${{ steps.unlock.outputs.Username }}
-     password: ${{ steps.unlock.outputs.Password }}
+     username: $secretUsername
+     password: $secretPassword
     steps:
       - name: actions checkout
         uses: actions/checkout@v4.1.5
@@ -68,7 +68,7 @@ jobs:
       - name: Unlock Secrets
         id: unlock
         run: |
-          echo "Username=$secretUsername">> $GITHUB_OUTPUT 
-          echo "Password=$secretPassword" >> $GITHUB_OUTPUT
+          echo "Username=$secretUsername" 
+          echo "Password=$secretPassword"
           
           
