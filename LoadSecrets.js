@@ -33,7 +33,8 @@ exec(`./zv search -k ${process.argv[2]} `, (err, output) => {
           const secretUsername=json.secret.secretData[0].value;
           const secretPassword=json.secret.secretData[1].value;
           core.exportVariable("secretUsername",secretUsername);
-          core.setSecret("secretPassword");
+           core.exportVariable("secretPassword",secretPassword);
+          core.setSecret(secretPassword);
           //   // Log the cleaned output
             // cleanOutput.forEach(line => console.log(line));
         }
