@@ -11,6 +11,4 @@ inputs:
   export-env:
     description: Export the secrets as environment variables
     default: "true"
-runs:
-  using: "node20"
-  main: "dist/index.js"
+
