@@ -71,9 +71,10 @@ jobs:
           echo "$secretPassword" 
   job2:
     runs-on: ubuntu-latest
+    needs: example_job
     steps:
     - name: myStep
-      run: echo "${{jobs.example_job.outputs.username}}"
+      run: echo "${{needs.example_job.outputs.username}}"
        
           
           
