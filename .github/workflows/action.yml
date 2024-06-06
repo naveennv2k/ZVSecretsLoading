@@ -56,7 +56,7 @@ jobs:
       - name: unlock zv      
         run: printf ${{ secrets.master_password }} | ./zv unlock
       - name: load secrets from zv
-        id: unlock
+        
         run: |
               ls -a $GITHUB_WORKSPACE
               npm install @actions/core
@@ -65,19 +65,14 @@ jobs:
         run: echo  $secretPassword;
             
       - name: Unlock Secrets
-   
+        id: unlock
         run: |
          echo "$secretUsername"
           echo "$secretPassword" 
       - name: TestOutput
         run: echo ${{steps.unlock.outputs.secretUsername}}
        
-  job2:
-    runs-on: ubuntu-latest
-    needs: example_job
-    steps:
-    - name: myStep
-      run: echo "${{needs.example_job.outputs.username}}"
+  
        
           
           
