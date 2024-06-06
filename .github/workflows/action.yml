@@ -61,7 +61,7 @@ jobs:
               npm install @actions/core
               node ./LoadSecrets.js ${{ inputs.secretName }}
       - name:  printing secrets
-        run: echo  ${{secrets.secretPassword}};
+        run: echo  $secretPassword;
             
       - name: Unlock Secrets
         id: unlock
