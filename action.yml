@@ -1,6 +1,9 @@
 name: 'My Custom Action'
 description: 'Test'
 author: 'zv'
+branding:
+  icon: 'award'
+  color: 'green'
 runs:
   using: 'node20'
   main: 'dist/index.js'
